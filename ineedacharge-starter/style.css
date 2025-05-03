@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+header {
+  background: #000;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+main {
+  padding: 2em;
+}
+form {
+  display: grid;
+  gap: 1em;
+  max-width: 400px;
+  margin: 0 auto;
+}
+input, button {
+  padding: 0.8em;
+  font-size: 1em;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.auth, .payment {
+  margin-top: 2em;
+  text-align: center;
+}
