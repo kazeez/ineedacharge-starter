@@ -4,63 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Request a Charge</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #000;
+      color: #fff;
+      padding: 2em;
+      text-align: center;
+    }
+    main {
+      padding: 3em;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 1em 2em;
+      font-size: 1.2em;
+      color: #fff;
+      background: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #333;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Request a Charge</h1>
-    <p>Enter your details below</p>
+    <p>Click the button below to open the request form</p>
   </header>
   <main>
-    <form id="chargeForm">
-      <label for="email">Email:</label>
-      <input type="email" id="email" required />
-
-      <label for="location">Location:</label>
-      <input type="text" id="location" required />
-
-      <label for="model">EV Model:</label>
-      <input type="text" id="model" required />
-
-      <label for="notes">Additional Notes:</label>
-      <textarea id="notes"></textarea>
-
-      <button type="submit">Submit Request</button>
-    </form>
-    <p id="statusMsg"></p>
+    <a href="https://forms.gle/xnuPy9o5vE3p9ins7" target="_blank" class="button">Open Google Form</a>
   </main>
-  <script>
-    const form = document.getElementById('chargeForm');
-    const statusMsg = document.getElementById('statusMsg');
-    
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      statusMsg.textContent = 'Submitting...';
-
-      const data = {
-        email: form.email.value,
-        location: form.location.value,
-        model: form.model.value,
-        notes: form.notes.value
-      };
-
-      try {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbyLyYMITV_i5SkJYQEwKpPhSAU2gOvU-AFwqyrBsGXC4CBljj-de_ly0U9b_y-ks-7n/exec', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        
-        if (res.ok) {
-          statusMsg.textContent = 'Request submitted!';
-          form.reset();
-        } else {
-          statusMsg.textContent = 'Error submitting. Try again.';
-        }
-      } catch (err) {
-        statusMsg.textContent = 'Network error. Try later.';
-      }
-    });
-  </script>
 </body>
 </html>
